@@ -1,0 +1,36 @@
+name = "vb"
+aliases = [
+  "vb.net"
+]
+entrypoint = "main.vb"
+extensions = [
+  "vb"
+]
+
+aptKeys = ['3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF']
+
+aptRepos = [
+  'deb https://download.mono-project.com/repo/ubuntu stable-bionic main'
+]
+
+packages = [
+  "mono-complete"
+]
+
+[compile]
+command = [
+  "vbnc",
+  "-out:main.exe"
+]
+
+[run]
+command = [
+  "mono",
+  "main.exe"
+]
+
+[tests]
+
+  [tests.hello]
+  code = "Module main\nSub Main()\nConsole.WriteLine("hello")\nEnd Sub\nEnd Module"
+  output = "hello\n"
